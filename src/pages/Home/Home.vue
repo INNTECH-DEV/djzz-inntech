@@ -1,22 +1,24 @@
 <template>
     <div>
-        <div v-if="loginPageStore.isPageOpen == true">
-            <Login />
+        <div v-if="signInPageStore.isPageOpen == true && userStore.isLoggedIn == false">
+            <SignIn />
         </div>
-        <div v-if="signUpPageStore.isPageOpen == true">
+        <div v-if="(signUpPageStore.isPageOpen == true && userStore.isLoggedIn == false)">
             <SignUp />
         </div>
-        Hello!
+
     </div>
 </template>
 
 <script setup>
-import Login from '../Login/Login.vue';
-import { useLoginModalStore } from '../../../stores/signInPageStore'
+import SignIn from '../SignIn/SignIn.vue';
+import { useSignInModalStore } from '../../../stores/signInPageStore'
 import { useSignupModalStore } from '../../../stores/signUpPageStore'
+import { useUserStore } from '../../../stores/userStore'
 import SignUp from '../../pages/SignUp/SignUp.vue';
 
-const loginPageStore = useLoginModalStore()
-const signUpPageStore = useLoginModalStore()
+const signInPageStore = useSignInModalStore()
+const signUpPageStore = useSignupModalStore()
+const userStore = useUserStore()
 
 </script>

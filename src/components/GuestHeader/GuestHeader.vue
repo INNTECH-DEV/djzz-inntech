@@ -1,5 +1,5 @@
 <template>
-    <Popover class="relative w-full bg-white ">
+    <Popover class="relative w-full bg-white">
         <div class="mx-auto container ">
             <div
                 class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -65,7 +65,7 @@
 
                     <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
-                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 ']">
+                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
                             <span>More</span>
                             <ChevronDownIcon
                                 :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']"
@@ -115,40 +115,13 @@
                         </transition>
                     </Popover>
                 </PopoverGroup>
-                <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0 ">
-                    <Popover class="relative flex items-center " v-slot="{ open }">
-                        <PopoverButton
-                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 outline-0']">
-
-                            <div>
-                                <img class="relative h-10 w-10 rounded-full" src="../../assets/user-pic.jpg" alt="" />
-                            </div>
-                            <ChevronDownIcon
-                                :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']"
-                                aria-hidden="true" />
-                        </PopoverButton>
-
-                        <transition enter-active-class="transition ease-out duration-200"
-                            enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0"
-                            leave-active-class="transition ease-in duration-150"
-                            leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-                            <PopoverPanel
-                                class="absolute left-1/2 z-10 mt-3 top-10 w-screen max-w-xs -translate-x-1/2 transform px-2 sm:px-0">
-                                <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                        <a v-for="item in userSettings" :key="item.name" :href="item.href"
-                                            class="-m-3 block rounded-md p-3 transition duration-150 ease-in-out hover:bg-gray-50">
-                                            <p class="text-base font-medium text-gray-900">{{ item.name }}</p>
-                                            <p class="mt-1 text-sm text-gray-500">{{ item.description }}</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </PopoverPanel>
-                        </transition>
-                    </Popover>
-                    <div @click="userStore.logout()"
-                        class="ml-8 cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-                        Log Out</div>
+                <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+                    <router-link to="/sign-in"
+                        class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Sign
+                        in</router-link>
+                    <router-link to="/sign-up"
+                        class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign
+                        up</router-link>
                 </div>
             </div>
         </div>
@@ -186,18 +159,20 @@
                     </div>
                     <div class="space-y-6 py-6 px-5">
                         <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Pricing</a>
+                            <a href="/feed" class="text-base font-medium text-gray-900 hover:text-gray-700">Feed</a>
 
                             <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">All DJ`s</a>
                             <a v-for="item in resources" :key="item.name" :href="item.href"
                                 class="text-base font-medium text-gray-900 hover:text-gray-700">{{ item.name }}</a>
                         </div>
                         <div>
-
-                            <div @click="userStore.logout"
+                            <div @click="signUpStore.openPage()"
                                 class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-                                Log Out</div>
-
+                                Sign up</div>
+                            <div @click="signInPageStore.openPage()"
+                                class="mt-6 text-center text-base font-medium text-gray-500">
+                                <p class="text-indigo-600 hover:text-indigo-500">Sign in</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,20 +198,13 @@ import {
     XMarkIcon,
 } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-import { useUserStore } from '../../../stores/userStore';
 
-const userStore = useUserStore()
-const userSettings = [
-    { name: 'My Profile', description: 'Learn about tips, product updates and company culture.', href: '/my-profile' },
-    {
-        name: 'Help Center',
-        description: 'Get all of your questions answered in our forums of contact support.',
-        href: '#',
-    },
-    { name: 'Guides', description: 'Learn how to maximize our platform to get the most out of it.', href: '#' },
-    { name: 'Events', description: 'Check out webinars with experts and learn about our annual conference.', href: '#' },
-    { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#' },
-]
+import { useSignInModalStore } from '../../../stores/signInPageStore'
+import { useSignupModalStore } from '../../../stores/signUpPageStore'
+
+const signInPageStore = useSignInModalStore()
+const signUpStore = useSignupModalStore()
+
 const solutions = [
     {
         name: 'Analytics',
