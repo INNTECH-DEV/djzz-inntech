@@ -61,7 +61,7 @@
                     </Popover>
 
                     <a href="/feed" class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</a>
-                    <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">All DJ`s</a>
+                    <a href="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All DJ`s</a>
 
                     <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
@@ -161,7 +161,8 @@
                         <div class="grid grid-cols-2 gap-y-4 gap-x-8">
                             <a href="/feed" class="text-base font-medium text-gray-900 hover:text-gray-700">Feed</a>
 
-                            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">All DJ`s</a>
+                            <a href="/all-djs" class="text-base font-medium text-gray-900 hover:text-gray-700">All
+                                DJ`s</a>
                             <a v-for="item in resources" :key="item.name" :href="item.href"
                                 class="text-base font-medium text-gray-900 hover:text-gray-700">{{ item.name }}</a>
                         </div>

@@ -27,6 +27,10 @@ const routes = [
       path: "/dj-profile",
       component: () => import("../src/pages/DjProfile/DjProfile.vue"),
     },
+    {
+      path: "/all-djs",
+      component: () => import("../src/pages/AllDjs/AllDjs.vue"),
+    },
 ]
 
 const router = createRouter({
