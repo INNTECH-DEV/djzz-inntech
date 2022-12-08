@@ -1,12 +1,4 @@
 <template>
-    <!--
-      This example requires updating your template:
-  
-      ```
-      <html class="h-full bg-white">
-      <body class="h-full">
-      ```
-    -->
     <div class=" h-screen">
         <div class="flex min-h-full ">
             <div class="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
@@ -73,7 +65,7 @@
                         </div>
 
                         <div class="mt-6">
-                            <form @submit="userStore.login()" action="/" class="space-y-6">
+                            <form @submit="handleSignInSubmit" class="space-y-6">
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">Email
                                         address</label>
@@ -126,10 +118,15 @@
 </template>
 <script setup>
 import { useUserStore } from '../../../stores/userStore'
+import { useRouter } from 'vue-router'
 
 const userStore = useUserStore()
+const router = useRouter()
 
-
+function handleSignInSubmit() {
+    userStore.login()
+    router.replace('/')
+}
 
 
 </script>

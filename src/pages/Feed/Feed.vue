@@ -6,7 +6,7 @@
                 <div class="flex gap-2 items-center justify-start">
                     <img class="h-8 rounded-full w-auto sm:h-12" src="../../assets/user-pic.jpg" />
                     <div class="flex flex-col">
-                        <p>{{ post.user }}</p>
+                        <p class="font-bold">{{ post.user }}</p>
                         <p class=" text-xs text-gray-400">18 minutes ago</p>
                     </div>
                 </div>
@@ -21,20 +21,30 @@
                     <div class="text-primary bg-secondary rounded-lg border p-2">Comment</div>
                     <div class="text-primary bg-secondary rounded-lg border p-2">Share</div>
                 </div>
-                <div class="w-full border-t p-3 flex flex-col  gap-6"
-                    :class="post.comments.length > 3 ? 'h-72 overflow-y-auto ' : 'h-72 justify-center'">
-                    <div v-for="(comment, index) in post.comments" v-bind:key="index">
-                        <div class="flex gap-2 items-start">
-                            <img src="../../assets/user-pic.jpg" class="h-8 rounded-full w-auto sm:h-8" />
-                            <div>
-                                <div class="bg-gray-100 rounded-md w-full px-3 py-1 flex flex-col">
-                                    <p class="text-xs">{{ comment.name }}</p>
-                                    <p class="text-base">{{ comment.comment }}</p>
+                <div class="relative ">
+                    <div class="  w-full border-t p-3 flex flex-col  gap-6"
+                        :class="post.comments.length > 3 ? 'h-72 overflow-y-scroll ' : 'h-max justify-center'">
+                        <div v-for="(comment, index) in post.comments" v-bind:key="index">
+                            <div class="flex gap-2 items-start">
+                                <img src="../../assets/user-pic.jpg" class="h-8 rounded-full w-auto sm:h-8" />
+                                <div>
+                                    <div class="bg-gray-100 rounded-md w-full px-3 py-1 flex flex-col">
+                                        <p class="text-xs font-bold">{{ comment.name }}</p>
+                                        <p class="text-base">{{ comment.comment }}</p>
+                                    </div>
+                                    <div class="text-xs text-gray-400">{{ comment.postedOn }}</div>
                                 </div>
-                                <div class="text-xs text-gray-400">{{ comment.postedOn }}</div>
                             </div>
+
                         </div>
 
+                    </div>
+                    <div class=" bg-white py-3 aboslute z-30 bottom-0 flex gap-2">
+                        <img src="../../assets/user-pic.jpg" class="h-8 rounded-full w-auto sm:h-8" />
+                        <div class="bg-gray-100 rounded-md w-full px-3 py-1 flex flex-col">
+                            <input @keyup.enter="addComment" v-model="commentData" type="text"
+                                placeholder="Write a comment" class="bg-gray-100 py-1 outline-none" />
+                        </div>
                     </div>
                 </div>
 
@@ -45,11 +55,20 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 
+const commentData = ref('')
+
+function addComment() {
+    for (let i = 0; i < posts.length; i++) {
+        posts[i].comments.push({ name: 'Ray', profile_pic: '../../assets/user-pic.jpg', comment: commentData.value, postedOn: '22m' })
+        commentData.value = ''
+    }
+}
 
 const posts = [
     {
-        user: 'Dj Khaled',
+        user: 'DJ Khaled',
         profile_pic: '../../assets/user-pic.jpg',
         badge: '#',
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -65,7 +84,7 @@ const posts = [
         ],
     },
     {
-        user: 'Dj Khaled',
+        user: 'DJ Khaled',
         profile_pic: '../../assets/user-pic.jpg',
         badge: '#',
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -77,7 +96,7 @@ const posts = [
         ],
     },
     {
-        user: 'Dj Khaled',
+        user: 'DJ Khaled',
         profile_pic: '../../assets/user-pic.jpg',
         badge: '#',
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -89,7 +108,7 @@ const posts = [
         ],
     },
     {
-        user: 'Dj Khaled',
+        user: 'DJ Khaled',
         profile_pic: '../../assets/user-pic.jpg',
         badge: '#',
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",

@@ -23,7 +23,7 @@ export const useUserStore = defineStore('userStore', () => {
       ],
       attended_events:[
         {name:'Coachella', date:'12.04.2021', location:'Ibiza', description:'Best electronic music festival'},
-        {name:'TommorrowLand', date:'05.06.2021', location:'Madrid', description:'Best electronic music festival'},
+        {name:'Tommorrowland', date:'05.06.2021', location:'Madrid', description:'Best electronic music festival'},
         {name:'Neversea', date:'12.04.2021', location:'Constanta', description:'Best electronic music festival'},
         {name:'Untold', date:'12.06.2021', location:'Cluj-napoca', description:'Best electronic music festival'},
         

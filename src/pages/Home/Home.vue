@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div v-if="signInPageStore.isPageOpen == true && userStore.isLoggedIn == false">
+        <div v-if="signInPageStore.isPageOpen && !userStore.isLoggedIn">
             <SignIn />
         </div>
-        <div v-if="(signUpPageStore.isPageOpen == true && userStore.isLoggedIn == false)">
+        <div v-if="signUpPageStore.isPageOpen == true && userStore.isLoggedIn == false">
             <SignUp />
         </div>
 

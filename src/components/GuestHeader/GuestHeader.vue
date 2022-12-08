@@ -17,7 +17,7 @@
                     </PopoverButton>
                 </div>
                 <PopoverGroup as="nav" class="hidden space-x-10 md:flex">
-                    <Popover class="relative" v-slot="{ open }">
+                    <!-- <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
                             :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
                             <span>Solutions</span>
@@ -58,12 +58,13 @@
                                 </div>
                             </PopoverPanel>
                         </transition>
-                    </Popover>
+                    </Popover> -->
 
                     <a href="/feed" class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</a>
                     <a href="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All DJ`s</a>
+                    <a href="/dj-profile" class="text-base font-medium text-gray-500 hover:text-gray-900">DJ profile</a>
 
-                    <Popover class="relative" v-slot="{ open }">
+                    <!-- <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
                             :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
                             <span>More</span>
@@ -113,7 +114,7 @@
                                 </div>
                             </PopoverPanel>
                         </transition>
-                    </Popover>
+                    </Popover> -->
                 </PopoverGroup>
                 <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                     <router-link to="/sign-in"
