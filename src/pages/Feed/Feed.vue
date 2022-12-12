@@ -1,8 +1,8 @@
 <template>
     <div class="container flex items-center justify-center">
-        <div class="flex flex-col gap-20 w-full h-full justify-center items-center">
+        <div class="flex flex-col gap-5 sm:gap-20 w-full h-full justify-center items-center">
             <div v-for="(post, index) in posts" v-bind:key="index"
-                class="flex flex-col gap-5 w-[700px] border px-10 py-5 shadow-lg rounded-lg">
+                class="flex flex-col gap-5 w-full sm:w-[700px] border px-2 sm:px-10 py-5 shadow-lg rounded-lg">
                 <div class="flex gap-2 items-center justify-start">
                     <img class="h-8 rounded-full w-auto sm:h-12" src="../../assets/user-pic.jpg" />
                     <div class="flex flex-col">
@@ -16,13 +16,13 @@
                 <div>
                     <img class="h-auto w-full" src="../../assets/sign-in-image.jpg" />
                 </div>
-                <div class="grid grid-cols-3 gap-10 w-full text-center">
+                <div class="grid grid-cols-3 gap-10 w-full text-center text-xs sm:text-base">
                     <div class="text-primary bg-secondary rounded-lg border p-2">Like</div>
                     <div class="text-primary bg-secondary rounded-lg border p-2">Comment</div>
                     <div class="text-primary bg-secondary rounded-lg border p-2">Share</div>
                 </div>
                 <div class="relative ">
-                    <div class="  w-full border-t p-3 flex flex-col  gap-6"
+                    <div class="  w-full border-t p-3 flex flex-col gap-2 sm:gap-6"
                         :class="post.comments.length > 3 ? 'h-72 overflow-y-scroll ' : 'h-max justify-center'">
                         <div v-for="(comment, index) in post.comments" v-bind:key="index">
                             <div class="flex gap-2 items-start">
