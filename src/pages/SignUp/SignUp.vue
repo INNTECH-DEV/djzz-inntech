@@ -7,7 +7,7 @@
       <body class="h-full">
       ```
     -->
-    <div class="h-screen">
+    <div class="pt-10 sm:pt-0 sm:h-screen">
         <div class="flex min-h-full ">
             <div class="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
                 <div class="mx-auto w-full max-w-sm lg:w-96">
@@ -23,7 +23,7 @@
                                 <div class="mt-1 grid grid-cols-3 gap-3">
                                     <div>
                                         <a href="#"
-                                            class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
+                                            class="inline-flex w-full justify-center rounded-app border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
                                             <span class="sr-only">Sign up with Facebook</span>
                                             <svg class="h-5 w-5" aria-hidden="true" fill="currentColor"
                                                 viewBox="0 0 20 20">
@@ -36,7 +36,7 @@
 
                                     <div>
                                         <a href="#"
-                                            class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
+                                            class="inline-flex w-full justify-center rounded-app border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
                                             <span class="sr-only">Sign up with Google</span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
@@ -48,7 +48,7 @@
 
                                     <div>
                                         <a href="#"
-                                            class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
+                                            class="inline-flex w-full justify-center rounded-app border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
                                             <span class="sr-only">Sign up with Twitter</span>
                                             <svg class="h-5 w-5" aria-hidden="true" fill="currentColor"
                                                 viewBox="0 0 20 20">
@@ -81,7 +81,7 @@
                                         <div class="mt-1">
                                             <input id="firstName" name="firstName" type="text" autocomplete="firstName"
                                                 required=""
-                                                class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                                                class="block w-full appearance-none rounded-app border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
                                         </div>
                                     </div>
                                     <div>
@@ -90,7 +90,7 @@
                                         <div class="mt-1">
                                             <input id="lastName" name="lastName" type="text" autocomplete="lastName"
                                                 required=""
-                                                class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                                                class="block w-full appearance-none rounded-app border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
                                         address</label>
                                     <div class="mt-1">
                                         <input id="email" name="email" type="email" autocomplete="email" required=""
-                                            class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                                            class="block w-full appearance-none rounded-app border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
 
@@ -109,7 +109,7 @@
                                     <div class="mt-1">
                                         <input id="password" name="password" type="password"
                                             autocomplete="current-password" required=""
-                                            class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                                            class="block w-full appearance-none rounded-app border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
                                     </div>
                                 </div>
 
@@ -130,7 +130,7 @@
 
 
                                 <button type="submit"
-                                    class="flex w-full justify-center rounded-md border border-transparent bg-black py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign
+                                    class="flex w-full justify-center rounded-app border border-transparent bg-black py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign
                                     up</button>
 
                             </form>

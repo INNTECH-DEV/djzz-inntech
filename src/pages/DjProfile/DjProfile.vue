@@ -14,10 +14,15 @@
                                 d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
                         </svg>
                     </div>
-                    <p class="text-gray-600"><span class="font-bold">Ranking :</span> {{ userStore.profileData.ranking
-                    }}</p>
-                    <div class="flex flex-col mt-5">
-                        <p><span class="font-bold">From :</span> {{ userStore.profileData.adress }}</p>
+
+                    <div class="flex flex-col gap-4 mt-5">
+                        <p class="text-black"><span class="font-bold">Ranking: </span> {{ userStore.profileData.ranking
+                        }}</p>
+                        <p class="text-black"><span class="font-bold">Genres: </span><span
+                                v-for="(genre, index) in userStore.profileData.genres" v-bind:key="index">{{ genre
+                                }}<span v-if="index < userStore.profileData.genres.length - 1">, </span> </span> </p>
+                        <p><span class="font-bold">From: </span> {{ userStore.profileData.adress }}</p>
+                        <p><span class="font-bold">Age: </span> {{ userStore.profileData.age }}</p>
                         <!-- <div class="flex flex-col items-start mt-5">
                             <p class="font-bold text-lg pb-2">Events attended:</p>
                             <ul class="list-disc;">
@@ -29,27 +34,8 @@
                                 </li>
                             </ul>
                         </div> -->
-                        <div class="mt-4">
-                            <p class="mb-2 font-bold">Events attended:</p>
-                            <Carousel :settings="settings" :breakpoints="breakpoints" class="-mx-2 ">
-                                <Slide v-for="(event, index) in userStore.profileData.attended_events"
-                                    v-bind:key="index">
-                                    <div class="carousel__item mx-2 w-full h-full shadow-md border p-4 rounded-lg">
-                                        <div class="flex flex-col ">
-                                            <p class="font-bold">{{ event.name }}</p>
-                                            <p class="text-xs">{{ event.date }}</p>
-                                            <p class="text-sm">{{ event.location }}</p>
-                                            <p class="text-xs">"{{ event.description }}"</p>
-                                        </div>
-                                    </div>
-                                </Slide>
 
-                                <template #addons>
-                                    <Navigation />
-                                </template>
-                            </Carousel>
-                        </div>
-                        <div class="flex justify-start gap-5 items-center mt-5">
+                        <div class="flex justify-start gap-5 items-center ">
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                 class="bi bi-facebook cursor-pointer" viewBox="0 0 16 16">
@@ -74,15 +60,38 @@
                                     d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
                             </svg>
                         </div>
+                        <div class="">
+                            <p class="mb-2 font-bold">Events attended:</p>
+                            <Carousel :settings="settings" :breakpoints="breakpoints" class="-mx-2 ">
+                                <Slide v-for="(event, index) in userStore.profileData.attended_events"
+                                    v-bind:key="index">
+                                    <div class="carousel__item mx-2 w-full h-full shadow-md border p-4 rounded-lg">
+                                        <div class="flex flex-col ">
+                                            <p class="font-bold">{{ event.name }}</p>
+                                            <p class="text-xs">{{ event.date }}</p>
+                                            <p class="text-sm">{{ event.location }}</p>
+                                            <p class="text-xs">"{{ event.description }}"</p>
+                                        </div>
+                                    </div>
+                                </Slide>
+
+                                <template #addons>
+                                    <Navigation />
+                                </template>
+                            </Carousel>
+                        </div>
                     </div>
                 </div>
 
             </div>
+            <div class="flex text-base mt-5">
 
-            <p class="text-2xl font-bold text-center mt-5">Top songs:</p>
+                <p>{{ userStore.profileData.description }}</p>
+            </div>
+            <p class=" text-2xl font-bold text-center mt-5">Top songs</p>
 
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-5">
                 <div v-for="(song, index) in userStore.profileData.songs" v-bind:key="index">
                     <router-link :to="song" class="w-full">
                         <div class="flex w-full ">
@@ -93,10 +102,11 @@
                                     alt="" />
 
                                 <div class="p-6 w-full">
-                                    <h5 class="text-gray-900 text-xl font-medium mb-2">Song title</h5>
-                                    <p class="text-gray-700 text-base mb-4">
+                                    <h5 class="text-black text-xl font-medium mb-2">Song title</h5>
+                                    <p class="text-black text-base mb-4">
                                         Official Video for “Obsessed” by Calvin Harris, Charlie Puth and Shenseea
                                     </p>
+                                    <p class="text-xs">Source: Spotify</p>
 
                                 </div>
                             </div>
@@ -104,7 +114,126 @@
                     </router-link>
                 </div>
             </div>
+            <div class="">
+                <!-- <div class="w-1/2 grid grid-cols-2 gap-5 mt-5">
+                    <input placeholder="Full Name" type="text"
+                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
+                    <input placeholder="Full Name" type="text"
+                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
+                </div> -->
+                <div
+                    class="flex flex-col md:grid md:grid-cols-7 gap-12 sm:gap-24 rounded-t-3xl rounded-app shadow-lg mb-12 py-16 pl-5 pr-5 md:pl-24 md:pr-16 bg-no-repeat bg-white">
+                    <div class="col-span-4">
+                        <h2 class="text-3xl sm:text-4xl	text-textPrimay font-bold font-primary mb-6">Contact</h2>
+                        <p class="font-primary text-accent text-sm sm:text-base">For more details contact me below. We
+                            are here to help you with any problem you encounter.</p>
+                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 gap-y-6 mt-5 sm:mt-9">
+                            <a href="https://wa.me/+40726720823" class="flex gap-2 sm:gap-4 items-center">
+                                <div>
+                                    <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_317_396)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M23.22 19.6761C22.8227 19.4774 20.8747 18.5201 20.512 18.3867C20.1493 18.2547 19.8853 18.1894 19.62 18.5867C19.356 18.9814 18.5973 19.8747 18.3667 20.1387C18.1347 20.4041 17.904 20.4361 17.508 20.2387C17.112 20.0387 15.8347 19.6214 14.3213 18.2721C13.144 17.2214 12.348 15.9241 12.1173 15.5267C11.8867 15.1307 12.092 14.9161 12.2907 14.7187C12.4693 14.5414 12.6867 14.2561 12.8853 14.0254C13.084 13.7934 13.1493 13.6281 13.2813 13.3627C13.4147 13.0987 13.348 12.8681 13.248 12.6694C13.1493 12.4707 12.3573 10.5201 12.0267 9.72672C11.7053 8.95472 11.3787 9.06005 11.136 9.04672C10.904 9.03605 10.64 9.03339 10.376 9.03339C10.112 9.03339 9.68267 9.13205 9.32 9.52939C8.956 9.92539 7.93333 10.8841 7.93333 12.8347C7.93333 14.7841 9.352 16.6681 9.55067 16.9334C9.74933 17.1974 12.344 21.2001 16.3187 22.9161C17.2653 23.3241 18.0027 23.5681 18.5773 23.7494C19.5267 24.0521 20.3907 24.0094 21.0733 23.9067C21.8333 23.7934 23.4173 22.9481 23.748 22.0227C24.0773 21.0974 24.0773 20.3041 23.9787 20.1387C23.88 19.9734 23.616 19.8747 23.2187 19.6761H23.22ZM15.9907 29.5467H15.9853C13.6246 29.5472 11.3072 28.9125 9.276 27.7094L8.796 27.4241L3.80667 28.7334L5.13867 23.8694L4.82533 23.3707C3.50552 21.2699 2.80706 18.8384 2.81067 16.3574C2.81333 9.09072 8.72533 3.17872 15.996 3.17872C19.516 3.17872 22.8253 4.55205 25.3133 7.04272C26.5405 8.26483 27.5132 9.71814 28.175 11.3186C28.8369 12.919 29.1749 14.6348 29.1693 16.3667C29.1667 23.6334 23.2547 29.5467 15.9907 29.5467ZM27.2067 5.15072C25.7376 3.67195 23.9896 2.49944 22.0641 1.70112C20.1386 0.902806 18.0738 0.494565 15.9893 0.500055C7.25067 0.500055 0.136 7.61339 0.133333 16.3561C0.129284 19.1384 0.859166 21.8726 2.24933 24.2827L0 32.5001L8.40533 30.2947C10.7305 31.5616 13.3361 32.2253 15.984 32.2254H15.9907C24.7293 32.2254 31.844 25.1121 31.8467 16.3681C31.8531 14.2844 31.4463 12.2202 30.6499 10.2948C29.8535 8.36934 28.6831 6.62095 27.2067 5.15072Z"
+                                                fill="#050038"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_317_396">
+                                                <rect width="32" height="32" fill="white" transform="translate(0 0.5)">
+                                                </rect>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
 
+                                </div>
+                                <div class="flex flex-col text-xs sm:text-sm text-black">
+                                    <p class="font-bold">WhatsApp</p>
+                                    <p class="underline">+40 74* *** ***</p>
+                                </div>
+                            </a>
+                            <a href="mailto:office@evabuild.ro" class="flex gap-2 sm:gap-4 items-center">
+                                <div>
+                                    <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M28 6.5H4C3.46957 6.5 2.96086 6.71071 2.58579 7.08579C2.21071 7.46086 2 7.96957 2 8.5V24.5C2 25.0304 2.21071 25.5391 2.58579 25.9142C2.96086 26.2893 3.46957 26.5 4 26.5H28C28.5304 26.5 29.0391 26.2893 29.4142 25.9142C29.7893 25.5391 30 25.0304 30 24.5V8.5C30 7.96957 29.7893 7.46086 29.4142 7.08579C29.0391 6.71071 28.5304 6.5 28 6.5ZM25.8 8.5L16 15.28L6.2 8.5H25.8ZM4 24.5V9.41L15.43 17.32C15.5974 17.4361 15.7963 17.4984 16 17.4984C16.2037 17.4984 16.4026 17.4361 16.57 17.32L28 9.41V24.5H4Z"
+                                            fill="#050038"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col text-xs sm:text-sm text-black">
+                                    <p class="font-bold">Email</p>
+                                    <p class="underline">office@dj.ro</p>
+                                </div>
+                            </a>
+                            <a href="tel:+40726720823" class="flex gap-2 sm:gap-4 items-center">
+                                <div>
+                                    <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M27.4094 7.95937L24.0812 4.63438C23.675 4.22813 23.1313 4 22.5562 4C21.9812 4 21.4375 4.225 21.0312 4.63438L17.4469 8.2125C17.0406 8.61875 16.8125 9.16563 16.8125 9.74063C16.8125 10.3188 17.0375 10.8594 17.4469 11.2688L20.2469 14.0719C19.609 15.5581 18.6925 16.9084 17.5469 18.05C16.4 19.2031 15.0594 20.1125 13.5719 20.7563L10.7719 17.9531C10.3656 17.5469 9.82187 17.3188 9.24687 17.3188C8.96326 17.3177 8.68229 17.3733 8.42042 17.4822C8.15856 17.5911 7.92107 17.7512 7.72188 17.9531L4.13438 21.5312C3.72813 21.9375 3.5 22.4844 3.5 23.0594C3.5 23.6375 3.725 24.1781 4.13438 24.5875L7.45937 27.9125C8.15312 28.6063 9.10938 29.0031 10.0906 29.0031C10.2937 29.0031 10.4906 28.9875 10.6906 28.9531C14.8281 28.2719 18.9344 26.0688 22.25 22.7563C25.5625 19.4375 27.7625 15.3313 28.45 11.1906C28.6469 10.0156 28.2531 8.80625 27.4094 7.95937ZM26.2344 10.8188C25.625 14.5031 23.6437 18.1781 20.6594 21.1625C17.675 24.1469 14.0031 26.1281 10.3188 26.7375C9.85625 26.8156 9.38125 26.6594 9.04375 26.325L5.77812 23.0594L9.24063 19.5938L12.9844 23.3438L13.0125 23.3719L13.6875 23.1219C15.7341 22.3694 17.5927 21.1809 19.1343 19.6387C20.676 18.0965 21.8639 16.2375 22.6156 14.1906L22.8656 13.5156L19.0906 9.74375L22.5531 6.27812L25.8188 9.54375C26.1562 9.88125 26.3125 10.3563 26.2344 10.8188Z"
+                                            fill="#050038"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col text-xs sm:text-sm text-black">
+                                    <p class="font-bold">Phone</p>
+                                    <p class="">+40 7** *** ***</p>
+                                </div>
+                            </a>
+                            <div class="flex gap-2 sm:gap-4 items-center">
+                                <div>
+                                    <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.3869 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63604 7.13604C7.94821 8.82387 7 11.1131 7 13.5C7 17.192 9.954 22.004 16 27.768C22.046 22.004 25 17.192 25 13.5ZM16 30.5C8.666 23.834 5 18.166 5 13.5C5 10.5826 6.15893 7.78473 8.22183 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27 18.166 23.334 23.834 16 30.5Z"
+                                            fill="#050038"></path>
+                                        <path
+                                            d="M16 16.5C16.7956 16.5 17.5587 16.1839 18.1213 15.6213C18.6839 15.0587 19 14.2956 19 13.5C19 12.7044 18.6839 11.9413 18.1213 11.3787C17.5587 10.8161 16.7956 10.5 16 10.5C15.2044 10.5 14.4413 10.8161 13.8787 11.3787C13.3161 11.9413 13 12.7044 13 13.5C13 14.2956 13.3161 15.0587 13.8787 15.6213C14.4413 16.1839 15.2044 16.5 16 16.5ZM16 18.5C14.6739 18.5 13.4021 17.9732 12.4645 17.0355C11.5268 16.0979 11 14.8261 11 13.5C11 12.1739 11.5268 10.9021 12.4645 9.96447C13.4021 9.02678 14.6739 8.5 16 8.5C17.3261 8.5 18.5979 9.02678 19.5355 9.96447C20.4732 10.9021 21 12.1739 21 13.5C21 14.8261 20.4732 16.0979 19.5355 17.0355C18.5979 17.9732 17.3261 18.5 16 18.5Z"
+                                            fill="#050038"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col text-xs sm:text-sm text-black">
+                                    <p class="font-bold">Location</p>
+                                    <p class="">Anywhere</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div role="form" class="" dir="ltr">
+                            <div class="screen-reader-response">
+                                <p role="status" aria-live="polite" aria-atomic="true"></p>
+                                <ul></ul>
+                            </div>
+                            <form class="flex flex-col gap-3">
+                                <div>
+                                    <label>Full Name</label>
+                                    <input placeholder="Full Name" type="text"
+                                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
+                                </div>
+                                <div>
+                                    <label>Company</label>
+                                    <input placeholder="Company" type="text"
+                                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
+                                </div>
+                                <div>
+                                    <label>Phone Number</label>
+                                    <input placeholder="+40 7** *** ***" type="number"
+                                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
+                                </div>
+                                <div>
+                                    <label>Email</label>
+                                    <input placeholder="user@company.com" type="text"
+                                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
+                                </div>
+                                <button
+                                    class=" items-center justify-center rounded-app bg-black py-2 text-base font-medium text-white shadow-sm">Submit</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>

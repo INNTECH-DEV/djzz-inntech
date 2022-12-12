@@ -3,15 +3,15 @@
         <div class="mx-auto container ">
             <div
                 class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-                <div class="flex justify-start lg:w-0 lg:flex-1">
+                <div class="flex justify-start lg:w-0 lg:flex-1 ">
                     <a href="/">
                         <span class="sr-only">Your Company</span>
-                        <img class="h-8 w-auto sm:h-16" src="../../assets/DJZZ.png" alt="" />
+                        <img class="h-8 w-auto sm:h-16 " src="../../assets/DJZZ.png" alt="" />
                     </a>
                 </div>
                 <div class="-my-2 -mr-2 md:hidden">
                     <PopoverButton
-                        class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        class="inline-flex items-center justify-center rounded-app bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span class="sr-only">Open menu</span>
                         <Bars3Icon class="h-6 w-6" aria-hidden="true" />
                     </PopoverButton>
@@ -19,7 +19,7 @@
                 <PopoverGroup as="nav" class="hidden space-x-10 md:flex">
                     <!-- <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
-                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
+                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-app bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
                             <span>Solutions</span>
                             <ChevronDownIcon
                                 :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']"
@@ -48,7 +48,7 @@
                                         class="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                         <div v-for="item in callsToAction" :key="item.name" class="flow-root">
                                             <a :href="item.href"
-                                                class="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100">
+                                                class="-m-3 flex items-center rounded-app p-3 text-base font-medium text-gray-900 hover:bg-gray-100">
                                                 <component :is="item.icon" class="h-6 w-6 flex-shrink-0 text-gray-400"
                                                     aria-hidden="true" />
                                                 <span class="ml-3">{{ item.name }}</span>
@@ -66,7 +66,7 @@
 
                     <!-- <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
-                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 ']">
+                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-app bg-white text-base font-medium hover:text-gray-900 ']">
                             <span>More</span>
                             <ChevronDownIcon
                                 :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']"
@@ -119,7 +119,7 @@
                 <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0 ">
                     <Popover class="relative flex items-center " v-slot="{ open }">
                         <PopoverButton
-                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 outline-0']">
+                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-app bg-white text-base font-medium hover:text-gray-900 outline-0']">
 
                             <div>
                                 <img class="relative h-10 w-10 rounded-full" src="../../assets/user-pic.jpg" alt="" />
@@ -138,7 +138,7 @@
                                 <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                     <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                         <a v-for="item in userSettings" :key="item.name" :href="item.href"
-                                            class="-m-3 block rounded-md p-3 transition duration-150 ease-in-out hover:bg-gray-50">
+                                            class="-m-3 block rounded-app p-3 transition duration-150 ease-in-out hover:bg-gray-50">
                                             <p class="text-base font-medium text-gray-900">{{ item.name }}</p>
                                             <p class="mt-1 text-sm text-gray-500">{{ item.description }}</p>
                                         </a>
@@ -148,7 +148,7 @@
                         </transition>
                     </Popover>
                     <div @click="userStore.logout()"
-                        class="ml-8 cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+                        class="ml-8 cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-app border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
                         Log Out</div>
                 </div>
             </div>
@@ -162,13 +162,11 @@
                     <div class="px-5 pt-5 pb-6">
                         <div class="flex items-center justify-between">
                             <div>
-                                <img class="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                    alt="Your Company" />
+                                <img class="h-8 w-auto" src="../../assets/DJZZ.png" alt="Your Company" />
                             </div>
                             <div class="-mr-2">
                                 <PopoverButton
-                                    class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                    class="inline-flex items-center justify-center rounded-app bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                     <span class="sr-only">Close menu</span>
                                     <XMarkIcon class="h-6 w-6" aria-hidden="true" />
                                 </PopoverButton>
@@ -176,30 +174,19 @@
                         </div>
                         <div class="mt-6">
                             <nav class="grid gap-y-8">
-                                <a v-for="item in solutions" :key="item.name" :href="item.href"
-                                    class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">
-                                    <component :is="item.icon" class="h-6 w-6 flex-shrink-0 text-indigo-600"
-                                        aria-hidden="true" />
-                                    <span class="ml-3 text-base font-medium text-gray-900">{{ item.name }}</span>
-                                </a>
+                                <a href="/feed" class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</a>
+                                <a href="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All
+                                    DJs</a>
+                                <a href="/dj-profile" class="text-base font-medium text-gray-500 hover:text-gray-900">DJ
+                                    profile</a>
                             </nav>
                         </div>
                     </div>
                     <div class="space-y-6 py-6 px-5">
-                        <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Pricing</a>
-
-                            <a href="/all-djs" class="text-base font-medium text-gray-900 hover:text-gray-700">All
-                                DJ`s</a>
-                            <a v-for="item in resources" :key="item.name" :href="item.href"
-                                class="text-base font-medium text-gray-900 hover:text-gray-700">{{ item.name }}</a>
-                        </div>
                         <div>
-
                             <div @click="userStore.logout"
-                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+                                class="flex w-full items-center justify-center rounded-app border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm ">
                                 Log Out</div>
-
                         </div>
                     </div>
                 </div>

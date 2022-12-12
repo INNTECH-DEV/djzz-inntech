@@ -109,7 +109,7 @@
                                 leave-from-class="transform opacity-100 scale-100"
                                 leave-to-class="transform opacity-0 scale-95">
                                 <MenuItems
-                                    class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl outline-none">
+                                    class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-app bg-white shadow-2xl outline-none">
                                     <div class="py-1">
                                         <MenuItem v-for="option in sortOptions" :key="option.name" v-slot="{ active }">
                                         <a :href="option.href"

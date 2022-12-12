@@ -7,7 +7,7 @@
       <div class="fixed  z-50 w-full " v-else>
         <Header />
       </div>
-      <div :class="$route.path != '/sign-in' && $route.path != '/sign-up' ? 'pt-40 pb-40' : ''">
+      <div :class="$route.path != '/sign-in' && $route.path != '/sign-up' ? 'pt-28 sm:pt-40 pb-28 sm:pb-40' : ''">
         <router-view />
       </div>
     </div>

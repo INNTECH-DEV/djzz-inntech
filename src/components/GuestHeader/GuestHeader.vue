@@ -11,7 +11,7 @@
                 </div>
                 <div class="-my-2 -mr-2 md:hidden">
                     <PopoverButton
-                        class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        class="inline-flex items-center justify-center rounded-app bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span class="sr-only">Open menu</span>
                         <Bars3Icon class="h-6 w-6" aria-hidden="true" />
                     </PopoverButton>
@@ -19,7 +19,7 @@
                 <PopoverGroup as="nav" class="hidden space-x-10 md:flex">
                     <!-- <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
-                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
+                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-app bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
                             <span>Solutions</span>
                             <ChevronDownIcon
                                 :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']"
@@ -48,7 +48,7 @@
                                         class="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                         <div v-for="item in callsToAction" :key="item.name" class="flow-root">
                                             <a :href="item.href"
-                                                class="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100">
+                                                class="-m-3 flex items-center rounded-app p-3 text-base font-medium text-gray-900 hover:bg-gray-100">
                                                 <component :is="item.icon" class="h-6 w-6 flex-shrink-0 text-gray-400"
                                                     aria-hidden="true" />
                                                 <span class="ml-3">{{ item.name }}</span>
@@ -60,13 +60,16 @@
                         </transition>
                     </Popover> -->
 
-                    <a href="/feed" class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</a>
-                    <a href="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All DJ`s</a>
-                    <a href="/dj-profile" class="text-base font-medium text-gray-500 hover:text-gray-900">DJ profile</a>
+                    <router-link to="/feed"
+                        class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</router-link>
+                    <router-link to="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All
+                        DJ`s</router-link>
+                    <router-link to="/dj-profile" class="text-base font-medium text-gray-500 hover:text-gray-900">DJ
+                        profile</router-link>
 
                     <!-- <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
-                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
+                            :class="[open ? 'text-gray-900' : 'text-gray-500', 'group inline-flex items-center rounded-app bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2']">
                             <span>More</span>
                             <ChevronDownIcon
                                 :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']"
@@ -121,7 +124,7 @@
                         class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Sign
                         in</router-link>
                     <router-link to="/sign-up"
-                        class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign
+                        class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-app border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign
                         up</router-link>
                 </div>
             </div>
@@ -135,13 +138,11 @@
                     <div class="px-5 pt-5 pb-6">
                         <div class="flex items-center justify-between">
                             <div>
-                                <img class="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                    alt="Your Company" />
+                                <img class="h-8 w-auto" src="../../assets/DJZZ.png" alt="Your Company" />
                             </div>
                             <div class="-mr-2">
                                 <PopoverButton
-                                    class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                    class="inline-flex items-center justify-center rounded-app bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                     <span class="sr-only">Close menu</span>
                                     <XMarkIcon class="h-6 w-6" aria-hidden="true" />
                                 </PopoverButton>
@@ -149,32 +150,27 @@
                         </div>
                         <div class="mt-6">
                             <nav class="grid gap-y-8">
-                                <a v-for="item in solutions" :key="item.name" :href="item.href"
-                                    class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">
-                                    <component :is="item.icon" class="h-6 w-6 flex-shrink-0 text-indigo-600"
-                                        aria-hidden="true" />
-                                    <span class="ml-3 text-base font-medium text-gray-900">{{ item.name }}</span>
-                                </a>
+                                <router-link to="/feed"
+                                    class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</router-link>
+                                <router-link to="/all-djs"
+                                    class="text-base font-medium text-gray-500 hover:text-gray-900">All
+                                    DJ`s</router-link>
+                                <router-link to="/dj-profile"
+                                    class="text-base font-medium text-gray-500 hover:text-gray-900">DJ
+                                    profile</router-link>
                             </nav>
                         </div>
                     </div>
                     <div class="space-y-6 py-6 px-5">
-                        <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                            <a href="/feed" class="text-base font-medium text-gray-900 hover:text-gray-700">Feed</a>
 
-                            <a href="/all-djs" class="text-base font-medium text-gray-900 hover:text-gray-700">All
-                                DJ`s</a>
-                            <a v-for="item in resources" :key="item.name" :href="item.href"
-                                class="text-base font-medium text-gray-900 hover:text-gray-700">{{ item.name }}</a>
-                        </div>
-                        <div>
-                            <div @click="signUpStore.openPage()"
-                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-                                Sign up</div>
-                            <div @click="signInPageStore.openPage()"
+                        <div class="flex flex-col ">
+                            <router-link to="/sign-up" @click="signUpStore.openPage()"
+                                class="flex w-full items-center justify-center rounded-app border border-transparent bg-black px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+                                Sign up</router-link>
+                            <router-link to="/sign-in" @click="signInPageStore.openPage()"
                                 class="mt-6 text-center text-base font-medium text-gray-500">
-                                <p class="text-indigo-600 hover:text-indigo-500">Sign in</p>
-                            </div>
+                                <p class="text-black">Sign in</p>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -203,41 +199,15 @@ import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
 import { useSignInModalStore } from '../../../stores/signInPageStore'
 import { useSignupModalStore } from '../../../stores/signUpPageStore'
+import { useUserStore } from '../../../stores/userStore';
+
+const userStore = useUserStore()
 
 const signInPageStore = useSignInModalStore()
 const signUpStore = useSignupModalStore()
 
-const solutions = [
-    {
-        name: 'Analytics',
-        description: 'Get a better understanding of where your traffic is coming from.',
-        href: '#',
-        icon: ChartBarIcon,
-    },
-    {
-        name: 'Engagement',
-        description: 'Speak directly to your customers in a more meaningful way.',
-        href: '#',
-        icon: CursorArrowRaysIcon,
-    },
-    { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
-    {
-        name: 'Integrations',
-        description: "Connect with third-party tools that you're already using.",
-        href: '#',
-        icon: Squares2X2Icon,
-    },
-    {
-        name: 'Automations',
-        description: 'Build strategic funnels that will drive your customers to convert',
-        href: '#',
-        icon: ArrowPathIcon,
-    },
-]
-const callsToAction = [
-    { name: 'Watch Demo', href: '#', icon: PlayIcon },
-    { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-]
+
+
 const resources = [
     {
         name: 'Help Center',
