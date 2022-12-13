@@ -112,10 +112,10 @@
                                     class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-app bg-white shadow-2xl outline-none">
                                     <div class="py-1">
                                         <MenuItem v-for="option in sortOptions" :key="option.name" v-slot="{ active }">
-                                        <a :href="option.href"
+                                        <router-link :to="option.href"
                                             :class="[option.current ? 'font-medium text-gray-900' : 'text-gray-500', active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm']">{{
                                                     option.name
-                                            }}</a>
+                                            }}</router-link>
                                         </MenuItem>
                                     </div>
                                 </MenuItems>

@@ -60,7 +60,7 @@
                                     d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
                             </svg>
                         </div>
-                        <div class="">
+                        <!-- <div class="">
                             <p class="mb-2 font-bold">Events attended:</p>
                             <Carousel :settings="settings" :breakpoints="breakpoints" class="-mx-2 ">
                                 <Slide v-for="(event, index) in userStore.profileData.attended_events"
@@ -79,21 +79,44 @@
                                     <Navigation />
                                 </template>
                             </Carousel>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
             </div>
-            <div class="flex text-base mt-5">
+            <div class="grid grid-cols-2 gap-10">
+                <div class="flex flex-col text-base">
+                    <p class="mb-2 font-bold">About me:</p>
+                    <p>{{ userStore.profileData.description }}</p>
+                </div>
 
-                <p>{{ userStore.profileData.description }}</p>
+                <div class="">
+                    <p class="mb-2 font-bold">Events attended:</p>
+                    <Carousel :settings="settings" :breakpoints="breakpoints" class="-mx-2 ">
+                        <Slide v-for="(event, index) in userStore.profileData.attended_events" v-bind:key="index">
+                            <div class="carousel__item mx-2 w-full h-full shadow-md border p-4 rounded-lg">
+                                <div class="flex flex-col ">
+                                    <p class="font-bold">{{ event.name }}</p>
+                                    <p class="text-xs">{{ event.date }}</p>
+                                    <p class="text-sm">{{ event.location }}</p>
+                                    <p class="text-xs">"{{ event.description }}"</p>
+                                </div>
+                            </div>
+                        </Slide>
+
+                        <template #addons>
+                            <Navigation />
+                        </template>
+                    </Carousel>
+                </div>
+
             </div>
             <p class=" text-2xl font-bold text-center mt-5">Top songs</p>
 
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5">
                 <div v-for="(song, index) in userStore.profileData.songs" v-bind:key="index">
-                    <router-link :to="song" class="w-full">
+                    <a :href="song" target="_blank" class="w-full">
                         <div class="flex w-full ">
                             <div class="rounded-lg shadow-lg bg-white ">
 
@@ -111,16 +134,11 @@
                                 </div>
                             </div>
                         </div>
-                    </router-link>
+                    </a>
                 </div>
             </div>
             <div class="">
-                <!-- <div class="w-1/2 grid grid-cols-2 gap-5 mt-5">
-                    <input placeholder="Full Name" type="text"
-                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
-                    <input placeholder="Full Name" type="text"
-                        class="mt-1 block w-full rounded-app border border-gray-300 py-2 px-3 shadow-sm sm:text-sm" />
-                </div> -->
+
                 <div
                     class="flex flex-col md:grid md:grid-cols-7 gap-12 sm:gap-24 rounded-t-3xl rounded-app shadow-lg mb-12 py-16 pl-5 pr-5 md:pl-24 md:pr-16 bg-no-repeat bg-white">
                     <div class="col-span-4">
@@ -128,7 +146,7 @@
                         <p class="font-primary text-accent text-sm sm:text-base">For more details contact me below. We
                             are here to help you with any problem you encounter.</p>
                         <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 gap-y-6 mt-5 sm:mt-9">
-                            <a href="https://wa.me/+40726720823" class="flex gap-2 sm:gap-4 items-center">
+                            <router-link to="https://wa.me/+40726720823" class="flex gap-2 sm:gap-4 items-center">
                                 <div>
                                     <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -150,8 +168,8 @@
                                     <p class="font-bold">WhatsApp</p>
                                     <p class="underline">+40 74* *** ***</p>
                                 </div>
-                            </a>
-                            <a href="mailto:office@evabuild.ro" class="flex gap-2 sm:gap-4 items-center">
+                            </router-link>
+                            <router-link to="mailto:office@dj.ro" class="flex gap-2 sm:gap-4 items-center">
                                 <div>
                                     <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -164,8 +182,8 @@
                                     <p class="font-bold">Email</p>
                                     <p class="underline">office@dj.ro</p>
                                 </div>
-                            </a>
-                            <a href="tel:+40726720823" class="flex gap-2 sm:gap-4 items-center">
+                            </router-link>
+                            <router-link to="tel:+40726720823" class="flex gap-2 sm:gap-4 items-center">
                                 <div>
                                     <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -178,25 +196,7 @@
                                     <p class="font-bold">Phone</p>
                                     <p class="">+40 7** *** ***</p>
                                 </div>
-                            </a>
-                            <div class="flex gap-2 sm:gap-4 items-center">
-                                <div>
-                                    <svg class="stroke-black" width="32" height="33" viewBox="0 0 32 33"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M25 13.5C25 11.1131 24.0518 8.82387 22.364 7.13604C20.6761 5.44821 18.3869 4.5 16 4.5C13.6131 4.5 11.3239 5.44821 9.63604 7.13604C7.94821 8.82387 7 11.1131 7 13.5C7 17.192 9.954 22.004 16 27.768C22.046 22.004 25 17.192 25 13.5ZM16 30.5C8.666 23.834 5 18.166 5 13.5C5 10.5826 6.15893 7.78473 8.22183 5.72183C10.2847 3.65893 13.0826 2.5 16 2.5C18.9174 2.5 21.7153 3.65893 23.7782 5.72183C25.8411 7.78473 27 10.5826 27 13.5C27 18.166 23.334 23.834 16 30.5Z"
-                                            fill="#050038"></path>
-                                        <path
-                                            d="M16 16.5C16.7956 16.5 17.5587 16.1839 18.1213 15.6213C18.6839 15.0587 19 14.2956 19 13.5C19 12.7044 18.6839 11.9413 18.1213 11.3787C17.5587 10.8161 16.7956 10.5 16 10.5C15.2044 10.5 14.4413 10.8161 13.8787 11.3787C13.3161 11.9413 13 12.7044 13 13.5C13 14.2956 13.3161 15.0587 13.8787 15.6213C14.4413 16.1839 15.2044 16.5 16 16.5ZM16 18.5C14.6739 18.5 13.4021 17.9732 12.4645 17.0355C11.5268 16.0979 11 14.8261 11 13.5C11 12.1739 11.5268 10.9021 12.4645 9.96447C13.4021 9.02678 14.6739 8.5 16 8.5C17.3261 8.5 18.5979 9.02678 19.5355 9.96447C20.4732 10.9021 21 12.1739 21 13.5C21 14.8261 20.4732 16.0979 19.5355 17.0355C18.5979 17.9732 17.3261 18.5 16 18.5Z"
-                                            fill="#050038"></path>
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col text-xs sm:text-sm text-black">
-                                    <p class="font-bold">Location</p>
-                                    <p class="">Anywhere</p>
-                                </div>
-                            </div>
-
+                            </router-link>
                         </div>
                     </div>
                     <div class="col-span-3">

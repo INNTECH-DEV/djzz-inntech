@@ -36,7 +36,7 @@ export const useUserStore = defineStore('userStore', () => {
         'https://www.facebook.com/calvinharris',
         'https://www.youtube.com/channel/UCIjYyZxkFucP_W-tmXg_9Ow',
       ],
-      description: "The prodigious young Dutchman is still only 26, having broken through onto the scene in his mid-teens via his proto-EDM tune ‘Animals’, and scooped the Top 100 DJs crown in 2016 and the subsequent two years. His great friend and mentor David Guetta won the poll the last two years, and now Garrix is back on top.It’s a placing that is well deserved — and not completely unexpected. Garrix really is up there in the superstar bracket now, transcending the dance scene to mingle alongside the likes of Ed Sheeran, Dua Lipa, Usher and U2, all of whom he has collaborated with. His fourth victory takes him above Guetta and his other great friend and mentor, Tiësto, in the all-time DJ popularity stakes, and is second only to Dutch trance overlord Armin van Buuren, with his five No.1s. How does that notoriety feel to Martin?",
+      description: "The prodigious young Dutchman is still only 26, having broken through onto the scene in his mid-teens via his proto-EDM tune ‘Animals’, and scooped the Top 100 DJs crown in 2016 and the subsequent two years. His great friend and mentor David Guetta won the poll the last two years, and now Garrix is back on top.It’s a placing that is well deserved — and not completely unexpected. Garrix really is up there in the superstar bracket now, transcending the dance scene to mingle alongside the likes of Ed Sheeran, Dua Lipa, Usher and U2, all of whom he has collaborated with.  ",
     }))
  
     function login() {

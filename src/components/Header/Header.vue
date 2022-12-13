@@ -4,10 +4,10 @@
             <div
                 class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
                 <div class="flex justify-start lg:w-0 lg:flex-1 ">
-                    <a href="/">
+                    <router-link to="/">
                         <span class="sr-only">Your Company</span>
                         <img class="h-8 w-auto sm:h-16 " src="../../assets/DJZZ.png" alt="" />
-                    </a>
+                    </router-link>
                 </div>
                 <div class="-my-2 -mr-2 md:hidden">
                     <PopoverButton
@@ -60,9 +60,12 @@
                         </transition>
                     </Popover> -->
 
-                    <a href="/feed" class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</a>
-                    <a href="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All DJs</a>
-                    <a href="/dj-profile" class="text-base font-medium text-gray-500 hover:text-gray-900">DJ profile</a>
+                    <router-link to="/feed"
+                        class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</router-link>
+                    <router-link to="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All
+                        DJs</router-link>
+                    <router-link to="/dj-profile" class="text-base font-medium text-gray-500 hover:text-gray-900">DJ
+                        profile</router-link>
 
                     <!-- <Popover class="relative" v-slot="{ open }">
                         <PopoverButton
@@ -174,11 +177,14 @@
                         </div>
                         <div class="mt-6">
                             <nav class="grid gap-y-8">
-                                <a href="/feed" class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</a>
-                                <a href="/all-djs" class="text-base font-medium text-gray-500 hover:text-gray-900">All
-                                    DJs</a>
-                                <a href="/dj-profile" class="text-base font-medium text-gray-500 hover:text-gray-900">DJ
-                                    profile</a>
+                                <router-link to="/feed"
+                                    class="text-base font-medium text-gray-500 hover:text-gray-900">Feed</router-link>
+                                <router-link to="/all-djs"
+                                    class="text-base font-medium text-gray-500 hover:text-gray-900">All
+                                    DJs</router-link>
+                                <router-link to="/dj-profile"
+                                    class="text-base font-medium text-gray-500 hover:text-gray-900">DJ
+                                    profile</router-link>
                             </nav>
                         </div>
                     </div>
